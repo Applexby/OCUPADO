@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OCUPADO — cortometraje animado</title>
+<meta name="description" content="OCUPADO: cortometraje animado 2D en tinta y acuarela sobre la crisis de los veinte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: quiet, melancholic, a film press kit read slowly.
+   IDEA: a house of doors in a foggy valley; each section is another room.
+   PICTURE: the hand-drawn valley frame, full bleed, under the title.
+   COLOUR and TYPE: valley fog and slate, oxide red only for small marks; Instrument Serif titles, Source Serif body, Hanken Grotesk labels.
+   LAYOUT: one long reading column for the story, wide bands for images, flat tables for production. */
+:root{color-scheme:light dark;
+  --bg:light-dark(#ECE8E1,#141318);--bg2:light-dark(#F5ECDF,#1B1A21);--slate:light-dark(#DFE2E3,#191C20);
+  --ink:light-dark(#1E1C22,#ECE6DA);--quiet:light-dark(#5E5A60,#A39C94);
+  --line:light-dark(#C9C2B8,#34313A);--red:light-dark(#9A5F3A,#D9A57E);
+  --night:#232A4A;--nightink:#F1E8DA;--nightquiet:#B7B3C4;--dark:#17161B;
+  --serif:'Source Serif 4',Georgia,serif;--title:'Instrument Serif',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--serif);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.read{max-width:680px;margin:0 auto}
+.band{padding:clamp(48px,7vw,104px) 0}
+.alt{background:var(--bg2)}
+.slate{background:var(--slate)}
+.night{background:var(--night);color:var(--nightink);--ink:var(--nightink);--quiet:var(--nightquiet);--line:#414a6e}
+.dark{background:var(--dark);color:#ECE6DA;--ink:#ECE6DA;--quiet:#A39C94;--line:#34313A}
+h2{font:400 clamp(34px,4.6vw,52px)/1.05 var(--title);margin:0 0 28px;text-wrap:balance}
+h3{font:600 18px/1.3 var(--sans);margin:0 0 6px}
+.lbl{font:500 14px/1.4 var(--sans);color:var(--quiet)}
+p{margin:0 0 18px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:24px;height:56px}
+nav b{font:400 24px/1 var(--title);letter-spacing:.06em;margin-right:auto}
+nav .links{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav .links a{font:500 14px var(--sans);text-decoration:none;color:var(--quiet);white-space:nowrap;padding:12px 0}
+nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
+
+/* hero */
+.hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#F1EEE6;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.62)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,13,.85),rgba(10,14,13,.1) 60%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(36px,6vw,72px)}
+.hero h1{font:400 clamp(64px,13vw,168px)/.9 var(--title);letter-spacing:.04em;margin:0}
+.hero .tag{font:italic 400 clamp(20px,2.4vw,28px)/1.3 var(--title);margin:14px 0 22px;max-width:620px}
+.hero .meta{font:500 15px/1.5 var(--sans);opacity:.85;display:flex;flex-wrap:wrap;gap:6px 22px}
+.knock{display:inline-flex;gap:7px;margin-right:4px;vertical-align:middle}
+.knock i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.9;animation:k 3.6s infinite}
+.knock i:nth-child(2){animation-delay:.25s}.knock i:nth-child(3){animation-delay:.5s}
+@keyframes k{0%,12%{transform:scale(1.5)}20%,100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.knock i{animation:none}html{scroll-behavior:auto}}
+
+/* logline */
+.logline{font:400 clamp(24px,3vw,34px)/1.35 var(--title);max-width:900px;margin:0;text-wrap:pretty}
+
+/* story */
+.story p{text-indent:1.6em;margin:0 0 6px;text-wrap:pretty}
+.story p.first{text-indent:0}
+.story p.first::first-letter{font:400 64px/.8 var(--title);float:left;margin:8px 10px 0 0}
+.story .brk{text-align:center;color:var(--quiet);letter-spacing:.8em;margin:26px 0;font-family:var(--sans)}
+.pull{font:italic 400 26px/1.35 var(--title);border-left:2px solid var(--red);padding-left:20px;margin:30px 0}
+
+/* characters */
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:34px 40px}
+.cast>div{border-top:1px solid var(--line);padding-top:16px}
+.cast p{font-size:16px;margin:0}
+.cast .lbl{margin-bottom:10px}
+
+/* images */
+.cols2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
+.grid{display:grid;gap:22px 16px}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+figure{margin:0}
+figure button{all:unset;cursor:zoom-in;display:block;width:100%}
+figure button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+figure img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--line)}
+figcaption{font:400 14px/1.4 var(--sans);color:var(--quiet);margin-top:7px}
+figcaption b{color:var(--ink);font-weight:600;margin-right:6px}
+.wide{grid-column:span 2}
+.sketch{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+
+/* palette */
+.pal{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));height:200px;margin-top:8px}
+.pal div{position:relative}
+.pal span{position:absolute;left:10px;right:8px;bottom:10px;font:500 13px/1.35 var(--sans)}
+.palnotes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px 18px;margin-top:22px;font:400 14px/1.45 var(--sans);color:var(--quiet)}
+.palnotes b{display:block;color:var(--ink);font-weight:600}
+
+/* production */
+table{width:100%;border-collapse:collapse;font:400 15px/1.45 var(--sans);margin:0 0 40px}
+th{text-align:left;font-weight:600;color:var(--quiet);border-bottom:1px solid var(--ink);padding:10px 12px 10px 0}
+td{border-bottom:1px solid var(--line);padding:11px 12px 11px 0;vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+tfoot td{font-weight:600;border-bottom:0}
+.prodgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(28px,5vw,64px)}
+.prodgrid h3{margin:0 0 12px}
+.note{font:400 14px/1.5 var(--sans);color:var(--quiet);margin-top:-26px;margin-bottom:40px}
+
+details.ending{margin-top:34px;border-top:1px solid var(--line);padding-top:22px}
+details.ending summary{cursor:pointer;font:500 16px/1.4 var(--sans);list-style:none;display:flex;gap:12px;align-items:baseline;min-height:44px;padding-top:10px}
+details.ending summary::-webkit-details-marker{display:none}
+details.ending summary::before{content:'+';font-size:20px;color:var(--red)}
+details.ending[open] summary::before{content:'−'}
+details.ending summary span{color:var(--quiet);font-size:14px;font-weight:400}
+details.ending summary:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+details.ending>div{margin-top:18px}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;font:400 14px/1.5 var(--sans);color:var(--quiet)}
+footer b{font:400 28px/1 var(--title);color:var(--ink);display:block;margin-bottom:8px;letter-spacing:.05em}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw)}
+dialog::backdrop{background:rgba(8,10,10,.88)}
+dialog img{max-height:82vh;width:auto;margin:0 auto}
+dialog p{font:400 15px/1.4 var(--sans);color:#E7E3D8;text-align:center;margin:12px 0 0}
+dialog button{position:fixed;top:14px;right:18px;font:500 15px var(--sans);color:#E7E3D8;background:none;border:1px solid #6a726f;border-radius:4px;padding:10px 16px;cursor:pointer;min-height:44px}
+
+@media(max-width:900px){.cols2,.prodgrid{grid-template-columns:1fr}.g4{grid-template-columns:repeat(3,minmax(0,1fr))}.pal{grid-template-columns:repeat(5,1fr);height:280px}.palnotes{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){body{font-size:16px}.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.wide{grid-column:span 2}.sketch{grid-template-columns:1fr}nav .links{display:none}table{font-size:13px}.pal span{font-size:11px;left:6px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Secciones"><div class="wrap">
+  <b>OCUPADO</b>
+  <div class="links">
+    <a href="#historia">Historia</a><a href="#personajes">Personajes</a><a href="#estilo">Estilo</a><a href="#referencias">Referencias</a><a href="#paleta">Paleta</a><a href="#produccion">Producción</a>
+  </div>
+</div></nav>
+
+<header class="hero">
+  <img src="assets/hero.jpg" alt="Dibujo de una casa de madera en un valle con lluvia, tres vacas en primer plano, vista entre ramas.">
+  <div class="wrap">
+    <h1>OCUPADO</h1>
+    <p class="tag">Lo que no abres a tiempo termina encerrándote.</p>
+    <div class="meta"><span><span class="knock" aria-hidden="true"><i></i><i></i><i></i></span>Cortometraje animado 2D</span><span>Tinta y acuarela</span><span>10 minutos</span><span>Drama psicológico</span></div>
+  </div>
+</header>
+
+<section class="band"><div class="wrap">
+  <p class="logline">Un estudiante de 22 años, atrapado en la crisis de los veinte, empieza a escuchar a alguien que golpea detrás de cada puerta que cierra y le suplica que abra. Él decide no abrir ninguna.</p>
+</div></section>
+
+<section class="band alt" id="historia"><div class="wrap"><div class="read story">
+  <h2>La historia</h2>
+  <div id="story"></div>
+  <details class="ending"><summary>Leer el final <span>contiene spoilers</span></summary><div id="ending"></div></details>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="read">
+  <h2>De qué habla</h2>
+  <p>OCUPADO habla de la crisis de los veinte: esa edad en la que se acaba el camino trazado y todos esperan que ya sepas quién eres. Cada puerta que Leo no abre es una decisión aplazada, ya sea qué estudiar, en qué trabajar, irse de casa o decir lo que quiere. Elegir una puerta es cerrar las demás, y por eso no abre ninguna.</p>
+  <p>El corto no explica esa parálisis: la convierte en suspenso. Golpes que nadie más escucha, papeles bajo la puerta y una casa que se vuelve cada vez más pequeña.</p>
+  <p class="pull">«Pensé que eso era crecer: que las cosas se van si uno no les abre».</p>
+</div></div></section>
+
+<section class="band night" id="personajes"><div class="wrap">
+  <h2>Personajes</h2>
+  <div class="cast" id="cast"></div>
+</div></section>
+
+<section class="band" id="estilo"><div class="wrap">
+  <div class="cols2">
+    <div>
+      <h2>Estilo visual</h2>
+      <p>El corto se dibuja en 2D con tinta de pincel y acuarela. La línea es negra, gruesa y quebrada, y no siempre cierra los contornos. El color va en manchas planas que dividen la luz en dos o tres zonas, sin degradados.</p>
+      <p>La luz es el papel sin pintar y las sombras son índigo, nunca negro plano. Hay poco detalle a propósito: en los planos generales todo se sugiere con pocas líneas, y las puertas se dibujan con más cuidado que las personas.</p>
+      <p>El encuadre se estrecha en cada acto, de 1.85:1 a 1.33:1, para que el encierro también se sienta en la pantalla.</p>
+    </div>
+    <div class="grid g3" id="egrid"></div>
+  </div>
+  <div class="sketch">
+    <figure><button data-full="assets/prologo.jpg" data-cap="Boceto de prueba: la casa en el valle"><img src="assets/prologo.jpg" alt="Boceto de la casa en el valle" loading="lazy"></button><figcaption><b>Boceto</b>La casa en el valle</figcaption></figure>
+    <figure><button data-full="assets/bano.jpg" data-cap="Boceto de prueba: el baño del instituto"><img src="assets/bano.jpg" alt="Boceto de Leo en el baño del instituto" loading="lazy"></button><figcaption><b>Boceto</b>El baño del instituto</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="band dark" id="referencias"><div class="wrap">
+  <h2>Referencias de live action</h2>
+  <p class="lbl" style="max-width:640px;margin-bottom:28px">Guían el escenario, la luz y el encuadre. Los personajes y el acabado siguen el estilo animado.</p>
+  <div class="grid g4" id="rgrid"></div>
+</div></section>
+
+<section class="band" id="paleta"><div class="wrap">
+  <h2>Paleta</h2>
+  <div class="pal" id="pal"></div>
+  <div class="palnotes">
+    <div><b>Prólogo y Acto I</b>Verdes de lluvia y el fluorescente del baño.</div>
+    <div><b>Acto II</b>El ámbar de las lámparas, con más oscuridad en cada escena.</div>
+    <div><b>Mosaico</b>El rojo óxido inunda el cuadro. Es la única imagen roja.</div>
+    <div><b>Acto III</b>El ámbar se apaga hacia la pizarra y el índigo.</div>
+    <div><b>Final</b>Vuelve el verde del baño: el color del comienzo.</div>
+  </div>
+</div></section>
+
+<section class="band slate" id="produccion"><div class="wrap">
+  <h2>Producción</h2>
+  <div class="prodgrid">
+    <div>
+      <h3>Ficha técnica</h3>
+      <table><tbody id="ficha"></tbody></table>
+      <h3>Estructura</h3>
+      <table><thead><tr><th>Parte</th><th>Qué pasa</th><th class="n">Duración</th></tr></thead><tbody id="estructura"></tbody><tfoot><tr><td>Total</td><td>112 planos</td><td class="n">9:39</td></tr></tfoot></table>
+    </div>
+    <div>
+      <h3>Método de animación</h3>
+      <table><thead><tr><th>Nivel</th><th>Cómo se hace</th><th class="n">Planos</th></tr></thead><tbody id="niveles"></tbody></table>
+      <h3>Plan de trabajo</h3>
+      <table><thead><tr><th>Fase</th><th>Contenido</th><th class="n">Horas</th></tr></thead><tbody id="fases"></tbody><tfoot><tr><td>Total</td><td>Una persona, estimado</td><td class="n">unas 600</td></tr></tfoot></table>
+      <p class="note">El primer entregable es un tráiler de 68 segundos con 21 planos que irán tal cual en el corto.</p>
+      <h3>Herramientas</h3>
+      <table><tbody id="tools"></tbody></table>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <b>OCUPADO</b>
+  Cortometraje animado en desarrollo, 2026. Las referencias de live action y de estilo pertenecen a sus autores y se usan solo como guía.
+</div></footer>
+
+<dialog id="lb"><button type="button" id="lbx">Cerrar</button><img id="lbi" alt=""><p id="lbc"></p></dialog>
+
+<script>
+{
+const STORY=[
+"En un valle húmedo y cubierto de niebla hay una casa de madera blanca, despintada por la lluvia. Tres vacas dejan de pastar y miran hacia nosotros. Muy lejos, dentro de la casa, alguien golpea una puerta tres veces.","*",
+"Leo tiene veintidós años y está terminando en el instituto una carrera que eligió porque había que elegir algo. En clase dibuja puertas en el margen del cuaderno, una detrás de otra. Pide permiso para ir al baño y se encierra en un cubículo, no para usarlo, sino para no estar en ningún lado. Mira el celular sin leer nada.",
+"Tres golpes en la puerta. «¿Hay alguien?». «¡Está ocupado!», responde él. Silencio. Se agacha a mirar por la ranura: las baldosas están vacías, no hay pies. Los golpes vuelven, más fuertes, y la voz se quiebra: «Ábreme. Por favor». La puerta tiembla contra el pestillo. Leo retrocede, el celular se le cae y la pantalla se raja. «No me dejes aquí». En el aula, el profesor pregunta por él y nadie sabe dónde está. Cuando los golpes paran, Leo abre: el baño está vacío y todas las puertas están abiertas, menos una, al fondo. Sale casi corriendo, sin mirar atrás.",
+"En casa, la única luz es la de la estufa. Su madre, Marta, le pide que saque sus cajas del depósito porque necesita ese cuarto. «Ahorita», dice él. «Ahora, hijo. Ya es tiempo». El depósito guarda su infancia: dibujos, un trofeo del colegio, una guitarra con una cuerda rota. Colgado en la puerta hay un saco nuevo que Leo compró para entrevistas de trabajo y que todavía tiene la etiqueta; su sombra en la madera parece un hombre. La puerta se cierra sola. Desde el pasillo, alguien golpea: «Ábreme». Leo toma un martillo y se pega a la pared. Cuando acerca la oreja a la madera, la voz grita junto a su oído. Leo cae al piso. La puerta se abre y es Marta, a contraluz: «¿Por qué tardas tanto?». Ella no vio a nadie. Leo sale sin las cajas. Junto al interruptor quedan las marcas de su estatura de niño; la última es de cuando tenía nueve años.",
+"En la cena, el tío Rubén habla con la boca llena: qué vas a hacer cuando termines, a tu edad yo ya trabajaba, el hijo de la Carmen ya se fue a trabajar afuera. Detrás de Leo, la puerta de la cocina recibe un golpe suave que solo él escucha. No voltea. «Todavía no sé», responde, y el tío ya no lo está escuchando.",
+"Esa noche se queda dormido sobre unos formularios de postulación que nunca llenó. Lo despiertan tres golpes. Bajo su puerta, dos sombras de pies cortan la línea de luz y un papel se desliza hacia adentro. Está en blanco. Llega otro que dice AYUDA, escrito con lápiz grueso y tembloroso. Llega un tercero: un dibujo que él mismo hizo de niño, titulado «Cuando sea grande», con él de adulto, una casa, un auto y una sonrisa enorme. Leo rompe los dos primeros. El tercero no puede romperlo, y lo guarda en un cajón.","*",
+"Entonces entendemos que no es la primera vez. Un muro de puertas encajadas como un rompecabezas, sin orden, empieza a girar, y las puertas se abren una a una. Detrás de cada una hay un día distinto: un ropero, la puerta de un bus, un probador, la reja del instituto, su cuarto otra noche. En todos, Leo está frente a una puerta que no abre. Después llega la calma. «Un día, simplemente, paró. Dejé de escucharlos. Pensé que eso era crecer: que las cosas se van si uno no les abre». De niño, Leo dibujaba en el vidrio empañado de la ventana una casa y una figura grande. Hoy mira por la misma ventana y el vidrio está limpio."];
+const END=[
+"Una noche, Marta duerme fuera de casa. Leo, con una camisa a cuadros, está solo en el recibidor cuando tocan la puerta principal. Es don Julio, el vecino, que le deja leña. Leo se ríe de sí mismo, aliviado. Tres golpes otra vez, y ya no es don Julio: son muchas voces a la vez, y todas son la suya. La puerta se curva hacia adentro. Leo arrastra el sillón, la mesa y la cómoda hasta levantar una barricada. Silencio. Las luces del pasillo se apagan, su aliento se vuelve vapor y, al fondo, entre dos puertas, aparece por un segundo una figura con la misma camisa que él.",
+"Leo ya no quiere quedarse adentro. Desarma la barricada y gira la perilla, pero no se mueve. Empuja, golpea, y la puerta no cede: es como si fuera parte de la pared. Se acerca a la mirilla. No ve la calle: ve el baño del instituto y la puerta del cubículo, cerrada. «¿Hay alguien?», pregunta. Desde adentro, una voz joven, la suya, responde: «¡Está ocupado!». Leo lo entiende. Golpea con las dos manos: «Ábreme. Por favor. No me dejes aquí». Dentro del cubículo, el Leo de aquel día retrocede asustado y deja caer el celular.","*",
+"Amanece en el valle. Las vacas vuelven a mirarnos. En la ventana del segundo piso, una silueta con camisa a cuadros apoya la mano en el vidrio. Muy lejos, alguien golpea tres veces."];
+const CAST=[
+["Leo","22 años · protagonista","Estudiante en el último ciclo del instituto. Vive con su madre. Evita, posterga y se ríe de sí mismo cuando el miedo baja. Quiere que nadie le pregunte qué va a hacer; necesita elegir un camino aunque no sea el perfecto. Se repite que si no elige, no se equivoca."],
+["Marta","44 años · la madre","Sostiene la casa sola y quiere que su hijo avance. No es cruel: está cansada de esperar. Cuando ella abre una puerta, los golpes se detienen."],
+["Tío Rubén","50 años · la comparación","Habla con la boca llena y nunca escucha la respuesta. Es la voz de «a tu edad yo ya…»."],
+["Los que tocan","el misterio","Nunca se ven enteros: sombras bajo la puerta, dedos, papeles, una silueta con camisa a cuadros. Nadie sabe quiénes son. Piden lo mismo que Leo necesita: que alguien abra."]];
+const E=[["ff861dca","Haz de luz y multitud sin detalle"],["a37779e3","Gesto contenido, luz de ventana"],["6be59461","Manos con línea partida"],["1f336fc6","Exterior con línea suelta"],["a0fc5122","La mirada de los adultos"],["4eeff802","Noche en índigo"],["6382c402","El único momento cálido"],["7a28e2f0","Franja de luz sobre los ojos"],["117301a7","Cuerpo en movimiento"]];
+const R=[["fabce871","Marta frente al fuego"],["e01e35fd","Observado desde el marco"],["7ae33dac","Leo niño en la ventana"],["1af91b74","Pasillo al depósito"],["06795493","Escalera a su cuarto"],["fea86d15","La figura a cuadros"],["71dca362","Entrada al depósito"],["382143f2","Sombra del saco"],["28188a38","Acorralado"],["92ac1a5d","Puerta del depósito"],["5da1c091","Perilla sellada"],["111e0ce6","En el piso, a contraluz"],["dc5d5649","La camisa a cuadros"],["7d7626d7","La cena con el tío"],["264f4870","Pasillo a oscuras"],["e1bfeca3","Depósito abierto"],["5c2d8b3f","Marta en el umbral"],["bca3c086","La casa en el valle"],["2e3f03c1","Mosaico de puertas"]];
+const PAL=[["Negro carbón","#0E0E0F","#E7E3D8"],["Índigo tinta","#232A4A","#E7E3D8"],["Madera quemada","#572D18","#F3E4D2"],["Caoba","#6D3623","#F3E4D2"],["Ámbar tungsteno","#BA845D","#1C1410"],["Halo del umbral","#FDE5CD","#3A2A1E"],["Verde lluvia","#94AC92","#14201A"],["Musgo nocturno","#2F4131","#E2E8DA"],["Pizarra fría","#566365","#EEF1EF"],["Rojo óxido","#7A2A22","#F6DED8"]];
+const FICHA=[["Formato","Cortometraje animado 2D"],["Técnica","Tinta de pincel y acuarela digital"],["Duración","Unos 10 minutos"],["Género","Drama psicológico con suspenso"],["Escenarios","Valle, instituto y una casa de madera"],["Estado","Preproducción terminada; tráiler en desarrollo"]];
+const EST=[["Prólogo","La casa en el valle; tres golpes lejanos","0:25"],["Acto I","El baño del instituto: el primer «¿Hay alguien?»","1:57"],["Acto II","El depósito, la cena y los papeles bajo la puerta","4:03"],["Pausa","El mosaico de puertas y la calma","0:53"],["Acto III","La puerta principal, la barricada y la mirilla","2:02"],["Epílogo","El valle otra vez; alguien sigue golpeando","0:19"]];
+const NIV=[["A","Cuadro pintado con movimiento de cámara, luz y partículas","41"],["B","Animación limitada: pocas poses cambiadas a mano y bocas intercambiables","57"],["C","Video generado desde un cuadro aprobado, solo para acción y grupos","14"]];
+const FAS=[["Tráiler","Diseño de Leo, 2 escenarios, plantillas y 21 planos","150"],["Diseño","Resto de personajes, 8 escenarios, voces y animatic","80"],["Actos I y II","Aula, sala, depósito, cena, cuarto y mosaico","210"],["Acto III","Puerta principal, mirilla y epílogo","110"],["Post","Foley, mezcla, color, grano y créditos","75"]];
+const TOOLS=[["Imágenes","ChatGPT, Gemini y Adobe Firefly, siempre corregidas a mano"],["Dibujo","Krita, para repasar la línea y las manos"],["Animación","After Effects: cámara, poses, luz y bocas"],["Video","Kling y Seedance para pruebas; Firefly para clips finales"],["Montaje y sonido","DaVinci Resolve; voces grabadas con actores"]];
+
+const $=id=>document.getElementById(id);
+$('ending').innerHTML=END.map(t=>t==='*'?'<div class="brk" aria-hidden="true">· · ·</div>':`<p>${t}</p>`).join('');
+let first=true;
+$('story').innerHTML=STORY.map(t=>{if(t==='*')return'<div class="brk" aria-hidden="true">· · ·</div>';const c=first?' class="first"':'';first=false;return`<p${c}>${t}</p>`}).join('');
+$('cast').innerHTML=CAST.map(([n,r,t])=>`<div><h3>${n}</h3><div class="lbl">${r}</div><p>${t}</p></div>`).join('');
+const fig=(k,t,code,cls='')=>`<figure class="${cls}"><button data-full="assets/${k}.jpg" data-cap="${code} · ${t}"><img src="assets/${k}.jpg" alt="${t}" loading="lazy"></button><figcaption><b>${code}</b>${t}</figcaption></figure>`;
+$('egrid').innerHTML=E.map(([k,t],i)=>fig(k,t,'E'+(i+1))).join('');
+$('rgrid').innerHTML=R.map(([k,t],i)=>fig(k,t,'R'+(i+1),'')).join('');
+$('pal').innerHTML=PAL.map(([n,h,c])=>`<div style="background:${h};color:${c}"><span>${n}<br>${h}</span></div>`).join('');
+const rows=(id,a,num)=>$(id).innerHTML=a.map(r=>'<tr>'+r.map((c,i)=>`<td${num&&i===r.length-1?' class="n"':''}>${c}</td>`).join('')+'</tr>').join('');
+rows('ficha',FICHA);rows('estructura',EST,1);rows('niveles',NIV,1);rows('fases',FAS,1);rows('tools',TOOLS);
+
+const lb=$('lb');
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-full]');if(!b)return;$('lbi').src=b.dataset.full;$('lbi').alt=b.dataset.cap;$('lbc').textContent=b.dataset.cap;lb.showModal()});
+$('lbx').addEventListener('click',()=>lb.close());
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+}
+</script>
+</body>
+</html>
