@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OCUPADO — cortometraje animado</title>
 <meta name="description" content="OCUPADO: cortometraje animado 2D en tinta y acuarela sobre la crisis de los veinte.">
+<script>
+/* Activación segura del armado en vivo: solo con JavaScript y sin movimiento reducido */
+(function(h){
+  var reducir=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reducir)return;
+  h.classList.add('bld');
+  // Si build.js no arrancó en 9 s, se muestra la página igual
+  setTimeout(function(){if(!window.__bldOK)h.classList.remove('bld')},9000);
+})(document.documentElement);
+</script>
+<link rel="stylesheet" href="build.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -438,5 +449,6 @@ $('lbx').addEventListener('click',()=>lb.close());
 lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
 }
 </script>
+<script src="build.js"></script>
 </body>
 </html>
