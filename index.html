@@ -12,13 +12,13 @@
 /* VOICE: quiet, melancholic, a film press kit read slowly.
    IDEA: a house of doors in a foggy valley; each section is another room.
    PICTURE: the hand-drawn valley frame, full bleed, under the title.
-   COLOUR and TYPE: valley fog and slate, oxide red only for small marks; Instrument Serif titles, Source Serif body, Hanken Grotesk labels.
+   COLOUR and TYPE: rain green and moss, oxide red only for small marks; Instrument Serif titles, Source Serif body, Hanken Grotesk labels.
    LAYOUT: one long reading column for the story, wide bands for images, flat tables for production. */
 :root{color-scheme:light dark;
-  --bg:light-dark(#EEE5D8,#1A1511);--bg2:light-dark(#F5ECDF,#221B16);--slate:light-dark(#E3D5C1,#261E18);
-  --ink:light-dark(#2A2019,#EFE5D5);--quiet:light-dark(#6E5E50,#B3A28E);
-  --line:light-dark(#D2C2AC,#3C3129);--red:light-dark(#9A5F3A,#D9A57E);
-  --night:#3D2B1F;--nightink:#F4E9D8;--nightquiet:#CDB9A1;--dark:#1C1612;
+  --bg:light-dark(#E7EADF,#121713);--bg2:light-dark(#EEF0E6,#171E18);--slate:light-dark(#DBE2D4,#1A221B);
+  --ink:light-dark(#1B231C,#E6EBDF);--quiet:light-dark(#56634F,#A3AF9F);
+  --line:light-dark(#C3CCBA,#2E3A2F);--red:light-dark(#9A5F3A,#D9A57E);
+  --night:#2F4131;--nightink:#EEF1E6;--nightquiet:#B9C6B3;--dark:#131914;
   --serif:'Source Serif 4',Georgia,serif;--title:'Instrument Serif',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
@@ -31,8 +31,8 @@ a{color:inherit}
 .band{padding:clamp(48px,7vw,104px) 0}
 .alt{background:var(--bg2)}
 .slate{background:var(--slate)}
-.night{background:var(--night);color:var(--nightink);--ink:var(--nightink);--quiet:var(--nightquiet);--line:#5E4636}
-.dark{background:var(--dark);color:#EFE5D5;--ink:#EFE5D5;--quiet:#AD9C89;--line:#3C3129}
+.night{background:var(--night);color:var(--nightink);--ink:var(--nightink);--quiet:var(--nightquiet);--line:#4A5F4B}
+.dark{background:var(--dark);color:#E6EBDF;--ink:#E6EBDF;--quiet:#A3AF9F;--line:#2E3A2F}
 h2{font:400 clamp(34px,4.6vw,52px)/1.05 var(--title);margin:0 0 28px;text-wrap:balance}
 h3{font:600 18px/1.3 var(--sans);margin:0 0 6px}
 .lbl{font:500 14px/1.4 var(--sans);color:var(--quiet)}
@@ -49,7 +49,7 @@ nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
 /* hero */
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#F1EEE6;overflow:hidden}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.62)}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(22,15,10,.85),rgba(22,15,10,.1) 60%)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(9,16,11,.85),rgba(9,16,11,.1) 60%)}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(36px,6vw,72px)}
 .hero h1{font:400 clamp(64px,13vw,168px)/.9 var(--title);letter-spacing:.04em;margin:0}
 .hero .tag{font:italic 400 clamp(20px,2.4vw,28px)/1.3 var(--title);margin:14px 0 22px;max-width:620px}
@@ -107,39 +107,35 @@ tfoot td{font-weight:600;border-bottom:0}
 .prodgrid h3{margin:0 0 12px}
 .note{font:400 14px/1.5 var(--sans);color:var(--quiet);margin-top:-26px;margin-bottom:40px}
 
-details.ending{margin-top:34px;border-top:1px solid var(--line);padding-top:22px}
-details.ending summary{cursor:pointer;font:500 16px/1.4 var(--sans);list-style:none;display:flex;gap:12px;align-items:baseline;min-height:44px;padding-top:10px}
-details.ending summary::-webkit-details-marker{display:none}
-details.ending summary::before{content:'+';font-size:20px;color:var(--red)}
-details.ending[open] summary::before{content:'−'}
-details.ending summary span{color:var(--quiet);font-size:14px;font-weight:400}
-details.ending summary:focus-visible{outline:2px solid var(--red);outline-offset:4px}
-details.ending>div{margin-top:18px}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;font:400 14px/1.5 var(--sans);color:var(--quiet)}
 footer b{font:400 28px/1 var(--title);color:var(--ink);display:block;margin-bottom:8px;letter-spacing:.05em}
 
 /* lightbox */
 dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw)}
-dialog::backdrop{background:rgba(18,12,8,.9)}
+dialog::backdrop{background:rgba(7,12,8,.9)}
 dialog img{max-height:82vh;width:auto;margin:0 auto}
 dialog p{font:400 15px/1.4 var(--sans);color:#E7E3D8;text-align:center;margin:12px 0 0}
-dialog button{position:fixed;top:14px;right:18px;font:500 15px var(--sans);color:#E7E3D8;background:none;border:1px solid #7D6A58;border-radius:4px;padding:10px 16px;cursor:pointer;min-height:44px}
+dialog button{position:fixed;top:14px;right:18px;font:500 15px var(--sans);color:#E7E3D8;background:none;border:1px solid #6A7A69;border-radius:4px;padding:10px 16px;cursor:pointer;min-height:44px}
 
 /* hero call to listen */
-.cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:12px 20px 12px 14px;min-height:48px;border:1px solid rgba(241,238,230,.55);border-radius:999px;font:500 15px/1 var(--sans);text-decoration:none;color:#F1EEE6;background:rgba(22,15,10,.25);backdrop-filter:blur(6px);transition:background .2s,border-color .2s}
-.cta:hover,.cta:focus-visible{background:rgba(241,238,230,.14);border-color:#F1EEE6;outline:none}
-.cta svg{width:22px;height:22px}
-.cta span{opacity:.7;font-weight:400}
+.cta{display:inline-flex;align-items:center;gap:16px;margin-top:30px;padding:10px 26px 10px 10px;min-height:72px;border:1px solid rgba(238,241,230,.5);border-radius:999px;text-decoration:none;color:#EEF1E6;background:rgba(9,16,11,.3);backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
+.cta:hover,.cta:focus-visible{background:rgba(238,241,230,.14);border-color:#EEF1E6;outline:none}
+.cta i{flex:none;width:52px;height:52px;border-radius:50%;background:#EEF1E6;color:#1B231C;display:grid;place-items:center}
+.cta i svg{width:20px;height:20px;margin-left:3px}
+.cta b{display:block;font:400 clamp(24px,3vw,30px)/1.05 var(--title)}
+.cta small{display:block;font:500 13px/1.3 var(--sans);opacity:.75;margin-top:3px}
+.navplay{display:inline-flex;align-items:center;gap:8px;flex:none;font:500 14px/1 var(--sans);text-decoration:none;padding:0 14px 0 6px;min-height:36px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.navplay i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--bg);color:var(--ink)}
+.navplay svg{width:10px;height:10px;margin-left:2px}
 
 /* audio player */
-.listen{margin:0 0 44px;padding:22px 22px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font-family:var(--sans)}
-.ending .listen{margin:4px 0 32px}
+.listen{--bg:var(--night);--ink:var(--nightink);--quiet:var(--nightquiet);--line:rgba(238,241,230,.16);margin:0 0 48px;padding:26px 26px 14px;border-radius:14px;background:var(--night);color:var(--nightink);font-family:var(--sans);box-shadow:0 18px 40px -22px rgba(9,16,11,.6)}
 .lt{display:flex;align-items:center;gap:16px}
-.pp{all:unset;box-sizing:border-box;flex:none;width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;cursor:pointer;transition:transform .15s}
+.pp{all:unset;box-sizing:border-box;flex:none;width:68px;height:68px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;cursor:pointer;transition:transform .15s}
 .pp:active{transform:scale(.94)}
 .pp:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .pp svg{width:22px;height:22px}
-.lt h3{font:400 clamp(24px,3vw,28px)/1.1 var(--title);margin:0 0 4px}
+.lt h3{font:400 clamp(28px,3.4vw,34px)/1.05 var(--title);margin:0 0 6px}
 .lt .lbl{display:flex;flex-wrap:wrap;gap:0 8px;font-size:13px}
 .lt .lbl b{font-weight:500;color:var(--red)}
 .now{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:22px 0 0;font:500 14px/1.3 var(--sans)}
@@ -159,7 +155,7 @@ dialog button{position:fixed;top:14px;right:18px;font:500 15px var(--sans);color
 .ctl .follow::before{content:'';width:26px;height:15px;border-radius:9px;background:var(--line);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s;flex:none;background-image:radial-gradient(circle at 7.5px 50%,var(--bg) 5px,transparent 5.5px)}
 .ctl .follow[aria-pressed=true]{color:var(--ink)}
 .ctl .follow[aria-pressed=true]::before{background-color:var(--red);background-image:radial-gradient(circle at 18.5px 50%,var(--bg) 5px,transparent 5.5px)}
-.chaps{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:6px -22px 0;padding:8px 22px 8px;scroll-padding:0 22px;border-top:1px solid var(--line)}
+.chaps{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:6px -26px 0;padding:8px 26px 8px;scroll-padding:0 26px;border-top:1px solid var(--line)}
 .chaps::-webkit-scrollbar{display:none}
 .chaps button{all:unset;cursor:pointer;flex:none;font:400 13px/1 var(--sans);color:var(--quiet);padding:0 12px;min-height:36px;display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;border-radius:999px;white-space:nowrap}
 .chaps button span{font-variant-numeric:tabular-nums;opacity:.7}
@@ -199,8 +195,9 @@ body.mini-on footer{padding-bottom:110px}
 <nav aria-label="Secciones"><div class="wrap">
   <b>OCUPADO</b>
   <div class="links">
-    <a href="#historia">Historia</a><a href="#personajes">Personajes</a><a href="#estilo">Estilo</a><a href="#referencias">Referencias</a><a href="#paleta">Paleta</a><a href="#produccion">Producción</a>
+    <a href="#personajes">Personajes</a><a href="#estilo">Estilo</a><a href="#referencias">Referencias</a><a href="#paleta">Paleta</a><a href="#produccion">Producción</a>
   </div>
+  <a class="navplay" href="#historia" id="navplay"><i><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0v10l9-5z" fill="currentColor"/></svg></i>Escuchar</a>
 </div></nav>
 
 <header class="hero">
@@ -209,20 +206,19 @@ body.mini-on footer{padding-bottom:110px}
     <h1>OCUPADO</h1>
     <p class="tag">Lo que no abres a tiempo termina encerrándote.</p>
     <div class="meta"><span><span class="knock" aria-hidden="true"><i></i><i></i><i></i></span>Cortometraje animado 2D</span><span>Tinta y acuarela</span><span>10 minutos</span><span>Drama psicológico</span></div>
-    <a class="cta" href="#historia" id="cta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 8v8l6.5-4z" fill="currentColor"/></svg>Escuchar la historia <span>4 min</span></a>
+    <a class="cta" href="#historia" id="cta"><i><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0v10l9-5z" fill="currentColor"/></svg></i><span><b>Escuchar la historia</b><small>Narración completa · 6 min · el texto sigue a la voz</small></span></a>
   </div>
 </header>
+
+<section class="band alt" id="historia"><div class="wrap"><div class="read story">
+  <h2>La historia</h2>
+  <div class="listen" id="pl-todo"></div>
+  <div id="story"></div>
+</div></div></section>
 
 <section class="band"><div class="wrap">
   <p class="logline">Un estudiante de 22 años, atrapado en la crisis de los veinte, empieza a escuchar a alguien que golpea detrás de cada puerta que cierra y le suplica que abra. Él decide no abrir ninguna.</p>
 </div></section>
-
-<section class="band alt" id="historia"><div class="wrap"><div class="read story">
-  <h2>La historia</h2>
-  <div class="listen" id="pl-historia"></div>
-  <div id="story"></div>
-  <details class="ending"><summary>Leer o escuchar el final <span>contiene spoilers</span></summary><div><div class="listen" id="pl-final"></div><div id="ending"></div></div></details>
-</div></div></section>
 
 <section class="band"><div class="wrap"><div class="read">
   <h2>De qué habla</h2>
@@ -330,9 +326,8 @@ const TOOLS=[["Imágenes","ChatGPT, Gemini y Adobe Firefly, siempre corregidas a
 
 const $=id=>document.getElementById(id);
 const W=t=>t.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ');
-$('ending').innerHTML=END.map(t=>t==='*'?'<div class="brk" aria-hidden="true">· · ·</div>':`<p>${W(t)}</p>`).join('');
 let first=true;
-$('story').innerHTML=STORY.map(t=>{if(t==='*')return'<div class="brk" aria-hidden="true">· · ·</div>';const c=first?' class="first"':'';first=false;return`<p${c}>${W(t)}</p>`}).join('');
+$('story').innerHTML=[...STORY,'*',...END].map(t=>{if(t==='*')return'<div class="brk" aria-hidden="true">· · ·</div>';const c=first?' class="first"':'';first=false;return`<p${c}>${W(t)}</p>`}).join('');
 $('cast').innerHTML=CAST.map(([n,r,t])=>`<div><h3>${n}</h3><div class="lbl">${r}</div><p>${t}</p></div>`).join('');
 const fig=(k,t,code,cls='')=>`<figure class="${cls}"><button data-full="assets/${k}.jpg" data-cap="${code} · ${t}"><img src="assets/${k}.jpg" alt="${t}" loading="lazy"></button><figcaption><b>${code}</b>${t}</figcaption></figure>`;
 $('egrid').innerHTML=E.map(([k,t],i)=>fig(k,t,'E'+(i+1))).join('');
@@ -341,10 +336,9 @@ $('pal').innerHTML=PAL.map(([n,h,c])=>`<div style="background:${h};color:${c}"><
 const rows=(id,a,num)=>$(id).innerHTML=a.map(r=>'<tr>'+r.map((c,i)=>`<td${num&&i===r.length-1?' class="n"':''}>${c}</td>`).join('')+'</tr>').join('');
 rows('ficha',FICHA);rows('estructura',EST,1);rows('niveles',NIV,1);rows('fases',FAS,1);rows('tools',TOOLS);
 
-const SYNC={"historia":[{"t":[0.16,0.3,0.48,0.92,1.5,1.64,2.18,2.34,3.48,3.66,3.9,4.2,4.34,4.72,5.66,6.38,6.52,6.66,7.64,7.92,8.4,8.72,8.86,9.98,10.1,10.4,10.64,12.06,12.34,13.34,13.7,13.82,14.0,15.04,15.36,15.86,16.08,16.62,16.98],"end":17.5},{"t":[18.6,18.92,19.22,19.88,20.3,20.38,20.66,21.2,21.28,21.4,22.2,22.4,22.84,22.96,23.82,24.12,24.5,24.64,25.08,25.72,25.88,26.22,26.66,27.08,27.18,27.34,27.68,27.84,28.76,29.0,29.42,29.62,30.16,30.42,30.86,31.08,31.18,31.32,31.78,31.9,32.04,32.54,32.68,32.82,33.8,33.94,34.14,35.08,35.34,35.62,35.8,36.18,36.34,36.82,37.58,37.8,37.94,38.52,38.72,39.1],"end":39.38},{"t":[40.5,40.8,41.18,41.3,41.44,42.38,42.62,43.36,43.6,44.48,45.06,45.9,47.04,47.18,47.6,47.72,48.04,48.2,48.34,49.24,49.42,49.94,50.24,51.32,51.42,51.64,52.46,52.68,53.12,53.88,54.16,54.94,55.06,55.2,55.46,55.62,56.48,57.66,57.86,58.8,58.96,59.44,59.88,60.12,60.22,61.22,61.48,62.42,62.56,63.04,63.14,63.3,63.98,64.08,64.22,64.76,64.92,65.78,65.96,66.1,66.48,67.36,67.46,67.64,68.2,68.34,68.82,69.28,69.48,69.9,70.1,70.56,70.88,71.12,71.88,72.18,72.36,72.8,73.64,74.02,74.78,74.92,75.18,75.44,76.32,76.56,76.94,77.14,77.56,77.86,79.0,79.38,80.0,80.18,80.96,81.32,81.62,82.28,82.48,82.76],"end":83.16},{"t":[84.2,84.38,85.12,85.3,85.66,85.96,86.12,86.24,86.34,86.42,87.32,87.5,88.1,88.86,89.0,89.24,89.4,89.68,89.9,90.22,90.36,91.04,91.32,91.9,92.16,93.0,94.0,94.36,94.96,95.44,96.24,96.4,96.58,97.48,97.6,98.16,98.54,98.64,99.62,100.54,100.66,101.04,101.2,102.14,102.32,102.86,103.04,103.24,103.6,104.32,104.72,104.82,104.98,105.46,105.66,105.82,106.1,106.52,106.66,106.92,107.3,107.46,108.06,108.18,108.96,109.06,109.26,109.88,110.14,110.24,111.26,111.48,111.82,111.94,112.06,113.06,113.44,113.56,114.48,114.64,115.06,115.26,115.66,116.42,116.66,116.8,117.7,118.04,118.56,120.16,120.48,120.76,120.86,121.46,121.6,121.82,122.1,122.2,122.32,123.04,123.34,123.84,123.98,124.4,124.5,124.64,125.52,125.66,126.0,126.4,126.66,126.76,126.9,127.72,128.14,128.42,128.58,129.38,129.54,129.9,130.12,130.64,130.74,130.96,131.56,131.66,132.64,132.84,133.0,133.42,134.4,134.8,134.98,135.16,135.28,136.18,136.54,136.96,137.18,137.4,138.3,138.56,138.68,139.48,139.78,140.02,140.4,140.52,140.62,141.12,141.26,142.1,142.3,142.96,143.08,143.2,143.48,143.94,144.38],"end":144.8},{"t":[145.24,145.36,145.52,146.18,146.34,146.56,146.92,147.18,147.32,147.42,147.68,148.42,148.54,148.68,148.74,149.0,149.26,150.26,150.36,150.46,150.82,150.94,151.08,152.06,152.14,152.34,152.46,152.6,153.0,153.14,153.3,153.4,153.48,153.86,154.74,155.14,155.28,155.78,155.94,156.28,156.36,156.48,156.94,157.32,157.46,157.9,158.36,158.62,159.0,159.14,160.16,160.3,161.24,161.76,161.96,162.58,163.6,163.68,163.88,164.48,164.66,164.76,164.84,165.06],"end":165.7},{"t":[166.7,166.96,167.38,167.52,167.78,168.32,168.66,168.92,169.52,169.64,170.48,170.72,171.1,171.98,172.12,172.88,173.18,174.26,174.56,174.72,175.46,175.72,176.12,176.3,176.7,177.1,177.24,177.58,177.72,178.52,178.64,178.78,179.22,179.36,179.9,180.12,181.08,181.34,181.5,182.42,182.86,183.38,183.52,184.34,185.26,185.76,185.98,186.42,186.86,186.98,188.18,188.5,188.62,189.52,189.64,190.12,190.32,190.54,190.9,191.2,191.36,191.9,192.62,193.08,193.36,194.18,194.38,194.5,194.58,195.36,195.62,196.32,196.52,197.02,197.12,197.38,198.0,199.22,199.62,199.96,200.18,200.42,201.5,201.64,202.24,202.46,202.76,203.78,203.88,204.04,204.36,204.48,204.6],"end":205.04},{"t":[206.0,206.62,207.54,207.82,208.12,208.32,208.44,208.9,209.76,209.92,210.16,210.34,210.74,211.4,211.7,211.82,212.94,213.2,213.86,214.38,214.52,215.3,215.4,215.64,216.06,216.26,216.8,217.1,217.28,217.96,218.34,218.52,218.9,219.24,219.46,219.64,219.88,220.86,221.02,221.88,222.02,222.34,222.46,222.6,223.32,223.46,224.42,224.6,224.86,225.02,226.16,226.34,227.08,227.36,228.14,228.34,229.18,229.46,229.8,230.1,230.24,230.5,231.06,231.3,231.6,232.74,233.62,233.94,234.1,235.0,235.22,235.96,237.22,238.02,238.3,238.38,239.58,239.94,240.1,240.32,240.52,241.38,241.5,241.7,242.02,242.16,242.46,242.64,242.84,242.98,243.24,244.08,244.22,244.82,245.04,245.56,245.66,245.82,246.12,246.68,246.78,246.9,247.6,247.86,248.26,248.34,248.56,248.96,249.88,250.12,250.4,250.56,250.74,251.08,252.28,252.38,252.54,252.9,253.2],"end":253.62}],"final":[{"t":[0.16,0.38,1.24,1.58,1.96,2.2,2.36,3.32,3.82,4.0,4.18,4.6,4.74,5.34,5.74,6.02,6.12,6.26,7.44,7.78,8.1,8.24,8.56,9.54,9.68,9.86,10.48,10.6,11.24,11.36,11.46,11.72,13.22,13.48,13.66,13.9,14.04,14.2,14.84,16.2,16.5,16.94,17.22,18.16,18.32,18.48,18.6,18.74,18.96,19.94,20.32,20.82,21.18,21.28,21.42,22.2,22.48,22.94,23.12,23.32,24.18,24.32,24.68,24.88,25.18,25.4,26.22,26.48,26.98,27.12,27.72,27.92,28.26,28.36,28.52,29.14,29.4,29.9,30.06,31.26,32.36,32.58,32.88,33.06,33.5,33.6,34.58,34.7,35.2,35.34,35.68,36.7,36.8,37.02,37.72,38.06,38.36,39.3,39.8,39.98,40.18,40.68,40.9,41.88,42.04,42.28,42.74,43.26,43.44],"end":43.68},{"t":[44.34,44.68,44.84,45.04,45.3,45.72,46.48,47.0,47.12,47.7,47.88,48.16,48.28,49.16,49.4,49.56,49.72,50.48,51.34,52.2,52.3,52.46,52.92,53.16,53.78,53.92,54.14,54.32,54.68,55.02,55.12,55.26,56.14,56.22,56.64,56.7,56.84,57.84,58.0,58.14,58.3,59.22,59.36,59.56,59.88,60.04,61.2,61.3,61.46,61.8,62.0,62.98,64.02,64.34,65.12,66.22,66.48,67.22,67.42,67.68,68.38,68.56,69.22,70.1,70.4,71.68,71.92,72.02,73.1,73.58,73.74,73.96,74.24,75.1,76.08,76.28,77.26,77.42,77.54,77.9,78.88,79.24,79.42,80.42,80.58,80.84,80.94,81.28,81.58,82.18,83.34,83.46,83.78,84.1,84.24],"end":84.7},{"t":[85.46,86.04,86.16,86.3,87.28,87.5,87.94,88.3,88.4,89.58,89.7,89.8,90.24,90.44,90.9,91.7,91.92,92.42,92.6,93.02,93.16,93.78,94.22,94.38,94.62,94.74,94.88,95.92,96.16,97.22,97.64,98.28,98.64],"end":99.12}]};
-const TRACKS={
- historia:{src:'audio/ocupado-historia.mp3',title:'Escuchar la historia',name:'La historia',dur:253.81,box:'story',ch:[['Prólogo',0],['El baño',18.3],['El depósito',83.9],['La cena',144.9],['Los papeles',166.4],['Las puertas',205.7]]},
- final:{src:'audio/ocupado-final.mp3',title:'Escuchar el final',name:'El final',dur:99.32,box:'ending',ch:[['La puerta principal',0],['La mirilla',44],['Epílogo',85.1]]}};
+const SYNC={"todo":[{"t":[0.16,0.3,0.48,0.94,1.5,1.64,2.18,2.34,3.48,3.66,3.88,4.2,4.34,4.72,5.66,6.38,6.52,6.66,7.64,7.92,8.4,8.72,8.86,9.98,10.1,10.4,10.64,12.08,12.34,13.34,13.7,13.82,14.0,15.04,15.36,15.86,16.1,16.62,16.98],"end":17.5},{"t":[18.6,18.92,19.22,19.88,20.3,20.38,20.66,21.2,21.28,21.4,22.2,22.4,22.84,22.98,23.82,24.12,24.52,24.64,25.08,25.72,25.88,26.22,26.66,27.08,27.18,27.34,27.68,27.84,28.76,29.0,29.42,29.62,30.16,30.42,30.86,31.08,31.18,31.32,31.78,31.9,32.02,32.54,32.68,32.82,33.8,33.94,34.14,35.06,35.34,35.62,35.8,36.18,36.34,36.82,37.58,37.8,37.94,38.52,38.72,39.1],"end":39.38},{"t":[40.5,40.8,41.18,41.3,41.44,42.38,42.62,43.36,43.6,44.48,45.06,45.88,47.04,47.18,47.6,47.72,48.04,48.2,48.34,49.24,49.42,49.94,50.24,51.32,51.42,51.62,52.46,52.68,53.12,53.88,54.16,54.94,55.04,55.2,55.46,55.62,56.48,57.66,57.86,58.8,58.96,59.44,59.88,60.12,60.22,61.22,61.48,62.42,62.54,63.02,63.14,63.3,63.98,64.08,64.22,64.76,64.92,65.78,65.96,66.1,66.48,67.36,67.46,67.64,68.2,68.34,68.82,69.28,69.48,69.9,70.1,70.56,70.88,71.12,71.88,72.18,72.36,72.8,73.64,74.02,74.78,74.92,75.18,75.44,76.32,76.56,76.94,77.14,77.56,77.86,79.0,79.38,80.0,80.18,80.96,81.32,81.62,82.28,82.48,82.76],"end":83.16},{"t":[84.2,84.38,85.12,85.3,85.66,85.96,86.12,86.24,86.34,86.4,87.32,87.5,88.1,88.86,89.0,89.24,89.4,89.68,89.88,90.22,90.36,91.04,91.32,91.9,92.14,93.0,94.0,94.36,94.96,95.44,96.24,96.4,96.58,97.48,97.6,98.16,98.54,98.64,99.62,100.54,100.66,101.04,101.2,102.14,102.32,102.86,103.04,103.24,103.58,104.32,104.72,104.82,104.98,105.46,105.66,105.82,106.1,106.52,106.66,106.92,107.3,107.46,108.06,108.18,108.94,109.06,109.26,109.88,110.16,110.24,111.26,111.48,111.82,111.94,112.06,113.06,113.44,113.6,114.48,114.64,115.06,115.26,115.66,116.42,116.66,116.8,117.7,118.04,118.56,120.16,120.48,120.76,120.86,121.46,121.6,121.82,122.12,122.2,122.32,123.04,123.34,123.84,123.98,124.4,124.5,124.64,125.52,125.66,126.0,126.4,126.66,126.76,126.9,127.72,128.14,128.42,128.58,129.38,129.54,129.9,130.12,130.64,130.74,130.96,131.54,131.66,132.64,132.84,133.0,133.42,134.42,134.8,134.98,135.16,135.28,136.18,136.54,136.96,137.18,137.4,138.3,138.56,138.68,139.48,139.78,140.02,140.4,140.52,140.62,141.12,141.26,142.1,142.3,142.96,143.08,143.2,143.48,143.94,144.38],"end":144.8},{"t":[145.24,145.36,145.52,146.16,146.34,146.56,146.92,147.18,147.32,147.42,147.68,148.42,148.54,148.7,148.74,149.0,149.26,150.26,150.36,150.46,150.82,150.94,151.08,152.06,152.14,152.34,152.46,152.6,153.0,153.14,153.3,153.4,153.48,153.86,154.74,155.14,155.28,155.78,155.94,156.28,156.36,156.48,156.94,157.32,157.46,157.9,158.36,158.62,159.0,159.14,160.16,160.3,161.24,161.76,161.94,162.58,163.6,163.68,163.86,164.48,164.66,164.76,164.84,165.04],"end":165.7},{"t":[166.7,166.96,167.38,167.52,167.78,168.32,168.66,168.92,169.52,169.64,170.48,170.72,171.1,171.98,172.12,172.88,173.18,174.26,174.56,174.72,175.46,175.72,176.12,176.3,176.68,177.1,177.24,177.58,177.72,178.52,178.64,178.78,179.22,179.36,179.9,180.12,181.08,181.34,181.5,182.42,182.86,183.38,183.52,184.34,185.26,185.76,185.96,186.42,186.86,186.98,188.18,188.5,188.62,189.5,189.64,190.12,190.32,190.54,190.92,191.2,191.34,191.9,192.62,193.08,193.36,194.18,194.38,194.5,194.58,195.36,195.62,196.32,196.52,197.02,197.12,197.38,198.0,199.22,199.62,199.96,200.18,200.42,201.5,201.64,202.24,202.46,202.76,203.78,203.88,204.04,204.36,204.48,204.6],"end":205.04},{"t":[206.0,206.62,207.54,207.82,208.12,208.32,208.44,208.88,209.76,209.92,210.16,210.34,210.74,211.4,211.7,211.82,212.94,213.2,213.86,214.38,214.52,215.3,215.38,215.62,216.06,216.26,216.8,217.1,217.28,217.94,218.34,218.52,218.9,219.24,219.46,219.62,219.88,220.86,221.02,221.88,222.02,222.34,222.46,222.6,223.32,223.46,224.42,224.58,224.86,225.02,226.14,226.34,227.06,227.36,228.14,228.34,229.18,229.44,229.8,230.1,230.24,230.5,231.06,231.3,231.6,232.74,233.62,233.94,234.1,235.0,235.22,235.96,237.22,238.02,238.3,238.38,239.58,239.92,240.08,240.32,240.52,241.38,241.5,241.7,242.02,242.16,242.46,242.64,242.84,242.98,243.24,244.08,244.22,244.82,245.06,245.56,245.66,245.82,246.12,246.68,246.78,246.9,247.58,247.86,248.24,248.34,248.56,248.96,249.88,250.12,250.4,250.58,250.74,251.08,252.28,252.38,252.52,252.9,253.2],"end":253.62},{"t":[255.54,255.74,256.6,256.94,257.32,257.56,257.72,258.68,259.18,259.34,259.54,259.96,260.1,260.7,261.1,261.38,261.48,261.62,262.8,263.14,263.46,263.6,263.92,264.9,265.04,265.22,265.84,265.96,266.6,266.72,266.82,267.08,268.58,268.84,269.02,269.26,269.4,269.56,270.2,271.56,271.86,272.3,272.58,273.52,273.68,273.84,273.96,274.1,274.32,275.3,275.68,276.18,276.54,276.64,276.78,277.56,277.84,278.3,278.48,278.68,279.54,279.68,280.04,280.24,280.54,280.76,281.58,281.84,282.34,282.48,283.08,283.28,283.62,283.72,283.88,284.5,284.76,285.24,285.42,286.62,287.72,287.92,288.24,288.42,288.86,288.96,289.94,290.06,290.56,290.7,291.04,292.06,292.14,292.38,293.1,293.42,293.72,294.66,295.16,295.34,295.54,296.04,296.26,297.24,297.4,297.64,298.1,298.62,298.8],"end":299.02},{"t":[299.7,300.04,300.2,300.4,300.66,301.08,301.84,302.38,302.48,303.06,303.24,303.52,303.64,304.52,304.76,304.94,305.08,305.84,306.7,307.56,307.66,307.82,308.28,308.54,309.14,309.28,309.5,309.68,310.02,310.38,310.48,310.62,311.5,311.58,312.0,312.06,312.2,313.2,313.36,313.5,313.66,314.58,314.72,314.92,315.24,315.4,316.56,316.66,316.82,317.16,317.36,318.34,319.4,319.72,320.48,321.56,321.84,322.58,322.78,323.04,323.74,323.92,324.58,325.46,325.76,327.04,327.28,327.38,328.46,328.94,329.1,329.32,329.6,330.46,331.44,331.64,332.62,332.78,332.9,333.26,334.26,334.6,334.78,335.78,335.94,336.2,336.3,336.64,336.94,337.54,338.7,338.82,339.14,339.46,339.6],"end":340.06},{"t":[340.82,341.4,341.52,341.66,342.64,342.86,343.3,343.66,343.76,344.94,345.06,345.16,345.6,345.8,346.26,347.06,347.28,347.78,347.96,348.38,348.52,349.14,349.58,349.74,349.98,350.1,350.24,351.28,351.52,352.58,353.0,353.64,354.0],"end":354.48}]};
+const CH=[['Prólogo',0],['El baño',1],['El depósito',3],['La cena',4],['Los papeles',5],['Las puertas',6],['La puerta principal',7],['La mirilla',8],['Epílogo',9]];
+const TRACKS={todo:{src:'audio/ocupado-narracion.mp3',title:'Escuchar la historia',name:'OCUPADO',dur:354.69,box:'story',ch:CH.map(([n,p])=>[n,p?SYNC.todo[p].t[0]-.35:0])}};
 const ICON={play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L19 12z" fill="currentColor"/></svg>',pause:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 5h4v14h-4zM13.5 5h4v14h-4z" fill="currentColor"/></svg>'};
 const fmt=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
@@ -428,8 +422,8 @@ function paintMini(t){
 }
 mpp.addEventListener('click',()=>active&&active.toggle());
 mt.addEventListener('click',()=>active&&active.goText());
-players.historia=Player('historia');players.final=Player('final');
-$('cta').addEventListener('click',()=>{players.historia.play()});
+players.todo=Player('todo');
+['cta','navplay'].forEach(id=>$(id).addEventListener('click',()=>players.todo.play()));
 paintMini();
 
 const lb=$('lb');
