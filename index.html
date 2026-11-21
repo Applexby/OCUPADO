@@ -5,17 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OCUPADO — cortometraje animado</title>
 <meta name="description" content="OCUPADO: cortometraje animado 2D en tinta y acuarela sobre la crisis de los veinte.">
-<script>
-/* Activación segura del armado en vivo: solo con JavaScript y sin movimiento reducido */
-(function(h){
-  var reducir=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reducir)return;
-  h.classList.add('bld');
-  // Si build.js no arrancó en 9 s, se muestra la página igual
-  setTimeout(function(){if(!window.__bldOK)h.classList.remove('bld')},9000);
-})(document.documentElement);
-</script>
-<link rel="stylesheet" href="build.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,10 +15,10 @@
    COLOUR and TYPE: valley fog and slate, oxide red only for small marks; Instrument Serif titles, Source Serif body, Hanken Grotesk labels.
    LAYOUT: one long reading column for the story, wide bands for images, flat tables for production. */
 :root{color-scheme:light dark;
-  --bg:light-dark(#ECE8E1,#141318);--bg2:light-dark(#F5ECDF,#1B1A21);--slate:light-dark(#DFE2E3,#191C20);
-  --ink:light-dark(#1E1C22,#ECE6DA);--quiet:light-dark(#5E5A60,#A39C94);
-  --line:light-dark(#C9C2B8,#34313A);--red:light-dark(#9A5F3A,#D9A57E);
-  --night:#232A4A;--nightink:#F1E8DA;--nightquiet:#B7B3C4;--dark:#17161B;
+  --bg:light-dark(#EEE5D8,#1A1511);--bg2:light-dark(#F5ECDF,#221B16);--slate:light-dark(#E3D5C1,#261E18);
+  --ink:light-dark(#2A2019,#EFE5D5);--quiet:light-dark(#6E5E50,#B3A28E);
+  --line:light-dark(#D2C2AC,#3C3129);--red:light-dark(#9A5F3A,#D9A57E);
+  --night:#3D2B1F;--nightink:#F4E9D8;--nightquiet:#CDB9A1;--dark:#1C1612;
   --serif:'Source Serif 4',Georgia,serif;--title:'Instrument Serif',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
@@ -42,8 +31,8 @@ a{color:inherit}
 .band{padding:clamp(48px,7vw,104px) 0}
 .alt{background:var(--bg2)}
 .slate{background:var(--slate)}
-.night{background:var(--night);color:var(--nightink);--ink:var(--nightink);--quiet:var(--nightquiet);--line:#414a6e}
-.dark{background:var(--dark);color:#ECE6DA;--ink:#ECE6DA;--quiet:#A39C94;--line:#34313A}
+.night{background:var(--night);color:var(--nightink);--ink:var(--nightink);--quiet:var(--nightquiet);--line:#5E4636}
+.dark{background:var(--dark);color:#EFE5D5;--ink:#EFE5D5;--quiet:#AD9C89;--line:#3C3129}
 h2{font:400 clamp(34px,4.6vw,52px)/1.05 var(--title);margin:0 0 28px;text-wrap:balance}
 h3{font:600 18px/1.3 var(--sans);margin:0 0 6px}
 .lbl{font:500 14px/1.4 var(--sans);color:var(--quiet)}
@@ -60,7 +49,7 @@ nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
 /* hero */
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;color:#F1EEE6;overflow:hidden}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.62)}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,13,.85),rgba(10,14,13,.1) 60%)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(22,15,10,.85),rgba(22,15,10,.1) 60%)}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(36px,6vw,72px)}
 .hero h1{font:400 clamp(64px,13vw,168px)/.9 var(--title);letter-spacing:.04em;margin:0}
 .hero .tag{font:italic 400 clamp(20px,2.4vw,28px)/1.3 var(--title);margin:14px 0 22px;max-width:620px}
@@ -131,13 +120,13 @@ footer b{font:400 28px/1 var(--title);color:var(--ink);display:block;margin-bott
 
 /* lightbox */
 dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw)}
-dialog::backdrop{background:rgba(8,10,10,.88)}
+dialog::backdrop{background:rgba(18,12,8,.9)}
 dialog img{max-height:82vh;width:auto;margin:0 auto}
 dialog p{font:400 15px/1.4 var(--sans);color:#E7E3D8;text-align:center;margin:12px 0 0}
-dialog button{position:fixed;top:14px;right:18px;font:500 15px var(--sans);color:#E7E3D8;background:none;border:1px solid #6a726f;border-radius:4px;padding:10px 16px;cursor:pointer;min-height:44px}
+dialog button{position:fixed;top:14px;right:18px;font:500 15px var(--sans);color:#E7E3D8;background:none;border:1px solid #7D6A58;border-radius:4px;padding:10px 16px;cursor:pointer;min-height:44px}
 
 /* hero call to listen */
-.cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:12px 20px 12px 14px;min-height:48px;border:1px solid rgba(241,238,230,.55);border-radius:999px;font:500 15px/1 var(--sans);text-decoration:none;color:#F1EEE6;background:rgba(10,14,13,.25);backdrop-filter:blur(6px);transition:background .2s,border-color .2s}
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:12px 20px 12px 14px;min-height:48px;border:1px solid rgba(241,238,230,.55);border-radius:999px;font:500 15px/1 var(--sans);text-decoration:none;color:#F1EEE6;background:rgba(22,15,10,.25);backdrop-filter:blur(6px);transition:background .2s,border-color .2s}
 .cta:hover,.cta:focus-visible{background:rgba(241,238,230,.14);border-color:#F1EEE6;outline:none}
 .cta svg{width:22px;height:22px}
 .cta span{opacity:.7;font-weight:400}
@@ -449,6 +438,5 @@ $('lbx').addEventListener('click',()=>lb.close());
 lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
 }
 </script>
-<script src="build.js"></script>
 </body>
 </html>
